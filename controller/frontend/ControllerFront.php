@@ -12,6 +12,21 @@ class ControllerFront{
         require('view/frontend/home.php');
     }
     
-    
+    public function display_page($page){
+        if($page == "home"){
+            $postM = new PostManagerFront;
+            $_SESSION['chapter_count'] = $postM->chapter_count();
+            $header = "header_home";
+            require('view/frontend/home.php');
+        }
+        if($page == "about"){
+            $header = "header_about";
+            require('view/frontend/about.php');
+        }
+        if($page == "contact"){
+            $header = "header_contact";
+            require('view/frontend/contact.php');
+        }
+    }
     
 }
