@@ -29,4 +29,14 @@ class ControllerFront{
         }
     }
     
+    public function display_chapter($chapter){
+        $postM = new PostManagerFront;
+        $commentM = new CommentManagerFront;
+        $dataP = $postM->getPost($chapter);
+        $dataC = $commentM->getComments($dataP['post_id']);
+        $chapter_count = $postM->chapter_count();
+        $header = "header_chapter";
+        require ('view/frontend/chapter.php');
+    }
+    
 }
