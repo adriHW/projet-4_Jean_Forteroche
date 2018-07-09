@@ -18,7 +18,10 @@ try{
             $ctrFront->display_page("home");
         }
         
-        
+        elseif($action == 'display_about'){
+            $ctrFront = new ControllerFront;
+            $ctrFront->display_page("about");
+        }
         
         
         
