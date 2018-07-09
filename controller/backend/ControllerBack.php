@@ -36,7 +36,51 @@ class ControllerBack{
         $last_coms = $commentM->last_coms();
         require('view/backend/admin_home.php');
     }
+
+    public function new_chapter_interface(){
+        require('view/backend/new_chapter.php');
+    }
     
+    public function add_post($title, $chapter, $content, $published){
+        $postM = new PostManagerBack;
+        $postM->add_post($title, $chapter, $content, $published);
+        $this->editing_interface('last');
+    }
+    
+    public function get_chapter($chapter){
+        $postM = new PostManagerBack;
+        $list = $postM->get_chapter($chapter);
+        require('view/backend/display_posts.php');
+    }
+    
+    public function get_posts_cate($cate){
+        $postM = new PostManagerBack;
+        $list = $postM->get_posts_cate($cate);
+        require('view/backend/display_posts.php');
+    }
+    public function get_posts(){
+        $postM = new PostManagerBack;
+        $list = $postM->get_posts();
+        require('view/backend/display_posts.php');
+    }
+    public function  delete_post($post_id, $page){
+        $postM = new PostManagerBack;
+        $postM->delete_post($post_id);
+        header('location: index.php?action='.$page);
+    }
+    
+    public function editing_interface($post_id){
+        $postM = new PostManagerBack;
+        $data = $postM->get_post($post_id);
+        require('view/backend/editing_interface.php');
+    }
+    
+    public function update_post($post_id, $title, $chapter, $content, $published){
+        $postM = new PostManagerBack;
+        $postM->update_post($post_id, $title, $chapter, $content, $published);
+        $data = $postM->get_post($post_id);
+        require('view/backend/editing_interface.php');
+    }
     
 }
     
