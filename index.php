@@ -158,7 +158,136 @@ try{
         }
         
 
+//**************************************************************************//
+//********************************  CHAPTER   ********************************//
+//**************************************************************************//
         
+        elseif($action == 'new_chapter'){
+            $ctrBack = new ControllerBack;
+            $ctrBack->new_chapter_interface();
+        }
+        
+        
+        elseif($action == 'add_post'){ 
+            if(isset($_POST['publish'])){
+                if(!empty($_POST['title']) && !empty($_POST['chapter']) && !empty($_POST['content']) ){
+                    $published  = 1;
+                    $title = $_POST['title'];
+                    $content = $_POST['content'];
+                    $chapter = $_POST['chapter'];
+                    $ctrBack = new ControllerBack;
+                    $add_post_error = "";
+                    $ctrBack->add_post($title, $chapter, $content, $published);
+                }
+                else{
+                    $_SESSION['error_mess'] = "Pour publier un chapitre il faut que tous les champs soient remplis. <br> Votre travail a été sauvegardé";
+                    $published = 0;
+                    $title = $_POST['title'];
+                    $content = $_POST['content'];
+                    $chapter = $_POST['chapter'];
+                    $ctrBack = new ControllerBack;
+                    $ctrBack->add_post($title, $chapter, $content, $published); 
+                }
+            }
+            
+            elseif(isset($_POST['save'])){
+                $title = $_POST['title'];
+                $content = $_POST['content'];
+                $chapter = $_POST['chapter'];
+                $published = 0;
+                $ctrBack = new ControllerBack;
+                $ctrBack->add_post($title, $chapter, $content,  $published);
+                    
+            }
+        }
+        
+        
+        elseif($action == 'get_chapter'){
+            if(isset($_POST['chapter'])){
+                $chapter = $_POST['chapter'];
+                $ctrBack = new ControllerBack;
+                $ctrBack->get_chapter($chapter);
+            }
+        }
+        elseif($action == 'chapters_list'){
+                $ctrBack = new ControllerBack;
+            if(isset($_GET['category'])){
+                $cate = $_GET['category'];
+                if($cate == 0 || $cate == 1){
+                    $ctrBack->get_posts_cate($cate);
+                }
+                else{
+                    $ctrBack->admin_home();
+                }
+            }
+            else{
+                $ctrBack->get_posts();
+            }
+        }
+        
+        
+        elseif($action == 'edit_chapter'){
+            if(isset($_GET['post_id']) && $_GET['post_id'] > 0 && isset($_GET['from'])){
+                $post_id = $_GET['post_id'];
+                $ctrBack = new ControllerBack;
+                $ctrBack->editing_interface($post_id);
+            }
+            else{
+                throw Exception('Identifiant manquant ou incorrect');
+            }
+        }   
+        
+        elseif($action == 'delete_chapter'){
+            if(isset($_GET['post_id']) && $_GET['post_id'] > 0 && isset($_GET['from'])){
+                $from = $_GET['from'];
+                $post_id = $_GET['post_id'];
+                $ctrBack = new ControllerBack;
+                $ctrBack->delete_post($post_id, $from);
+            }
+            else{
+                throw Exception('Identifiant manquant ou incorrect');
+            }
+        }
+        
+        
+        
+        elseif($action == 'update_post'){ 
+            if(isset($_GET['post_id']) && $_GET['post_id'] > 0){
+                
+                if(isset($_POST['publish'])){ 
+                    if(!empty($_POST['title']) && !empty($_POST['chapter']) && !empty($_POST['content'])){
+                        $published = 1;
+                        $title = $_POST['title'];
+                        $content = $_POST['content'];
+                        $chapter = $_POST['chapter'];
+                        $post_id = $_GET['post_id'];
+                        $ctrBack = new ControllerBack;
+                        $ctrBack->update_post($post_id, $title, $chapter, $content, $published);
+                    }
+                    else{
+
+                        $_SESSION['error_mess'] = "Pour publier un chapitre il faut que tous les champs soient remplis. <br> Votre travail a été sauvegardé";
+                        $published = 0;
+                        $title = $_POST['title'];
+                        $content = $_POST['content'];
+                        $chapter = $_POST['chapter'];
+                        $post_id = $_GET['post_id'];
+                        $ctrBack = new ControllerBack;
+                        $ctrBack->update_post($post_id, $title, $chapter, $content, $published);
+                    }
+                }
+                elseif(isset($_POST['save'])){
+
+                    $title = $_POST['title'];
+                    $content = $_POST['content'];
+                    $chapter = $_POST['chapter'];
+                    $published = 0;
+                    $post_id = $_GET['post_id'];
+                    $ctrBack = new ControllerBack;
+                    $ctrBack->update_post($post_id, $title, $chapter, $content, $published);
+                }
+            }     
+        }
         
         
         
