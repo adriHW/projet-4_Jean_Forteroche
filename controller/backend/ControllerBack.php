@@ -82,6 +82,53 @@ class ControllerBack{
         require('view/backend/editing_interface.php');
     }
     
+    public function display_coms($cate, $from){
+        if($cate == 'signaled' ){ 
+            $commentM = new CommentManagerBack;
+            $list = $commentM->get_coms($cate);
+            require('view/backend/display_comments.php');
+        }
+        elseif($cate == 'all'){
+            $commentM = new CommentManagerBack;
+            $list = $commentM->get_coms($cate);
+            require('view/backend/display_comments.php');
+        }
+    }
+    
+    public function chapter_coms($chapter, $from){
+        $commentM = new CommentManagerBack;
+        $list = $commentM->get_chapter_coms($chapter);
+        require('view/backend/display_comments.php');
+    }
+    
+    public function delete_com($com_id, $from){
+        $commentM = new CommentManagerBack;
+        $commentM->delete_com($com_id);
+        if($from == "admin_home"){
+            header('location: index.php?action=admin_home'); 
+        }
+        elseif($from == "all=1" || $from == "signaled=1"){
+            header('location: index.php?action=display_coms&'.$from); 
+        }
+        else{
+            header('location: index.php?action=chapter_coms&chapter='.$from); 
+        }
+    }
+    
+    public function validate_com($com_id, $from){
+        $commentM = new CommentManagerBack;
+        $commentM->validate_com($com_id);
+        if($from == "admin_home"){
+            header('location: index.php?action=admin_home'); 
+        }
+        elseif($from == "all=1" || $from == "signaled=1"){
+            header('location: index.php?action=display_coms&'.$from); 
+        }
+        else{
+            header('location: index.php?action=chapter_coms&chapter='.$from); 
+        }
+    }
+    
 }
     
     
