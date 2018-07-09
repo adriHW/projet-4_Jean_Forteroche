@@ -1,0 +1,423 @@
+html, body{
+    margin: 0;
+    height: 100%;
+}
+body{
+}
+
+section{
+    display: block;
+    min-height: 100%;
+    background-color: #8c9c99;
+    padding-bottom: 25px;
+}
+
+label{
+    margin: 0;
+}
+
+/***********************************   HEADER   ************************************/
+.header_nav{
+    position: relative;
+    top: 0;
+    margin-bottom: 0px;
+    color: snow;
+    text-align: center;
+    padding: 8rem 0  !important;
+}
+
+#header_home{
+    background-image: url(image/landscape-2124756_1280.jpg);
+    background-size:cover;
+}
+#header_about{
+    background-image: url(image/white_mountain_alaska_tr.jpg);
+    background-size:cover;
+}
+#header_chapter{
+    background-image: url(image/book_coffee_tr.jpg);
+    background-size:cover;
+}
+#header_contact{
+    background-image: url(image/landscape_house_alaska_tr.jpg);
+    background-size:cover;
+    background-position: 100% 80%;
+}
+
+
+#overlay{
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+#header_title{
+    display: block;
+    width: 60%;
+    margin: 0 20%;
+    position: relative;
+    color: snow;
+    font-weight: bold;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    z-index: 3;
+}
+
+#navibar{
+    z-index: 10;
+}
+
+.nav-link{
+    color: snow !important;
+    border-radius: 5px;
+}
+
+.nav-link:hover{
+    background-color: #8c9c99;
+    color: #343a40 !important;
+}
+
+.sticky{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+#what_chapter_container{
+    display: flex;
+    flex-direction: row;
+    color: snow;
+}
+
+#what_chapter{
+    width: 50px;
+}
+
+#btn_go, #what_chapter{
+    height: 30px;
+    padding: 2px;
+    margin-left: 5px;
+}
+
+/**************************************  FOOTER ***************************************************/
+
+#footer_container{ 
+    padding: 10px;
+    justify-content: space-around;
+    background-color:#343a40;
+    color: snow;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+#admin_container{
+    color:white;
+    margin-bottom: 15px;
+}
+
+.btn_dark_back{
+    border: 1px solid #cecece;
+    background-color: #343a40;
+    color: #cecece;
+}
+
+.btn_dark_back:hover{
+    background-color: #8c9c99;
+    color: #343a40;
+}
+
+#copy_p{
+    margin: 0;
+}
+/**************************************  HOME ***************************************************/
+
+.row_error{
+    text-align: center;
+}
+#error_mess{
+    color: red;
+    margin: 5px 0;
+}
+
+#home_title_container{
+    margin: 25px 0;
+    text-align: center;
+    border-bottom: 2px solid #343a40;
+}
+
+#home_title_container h2{
+    border-top: 2px solid #343a40;
+    border-bottom: 1px solid #343a40;
+}
+
+.home_section{
+    background-color: #8c9c99;
+}
+
+#img_home{
+    padding: 0 20px 0 0;
+}
+
+#img_home img{
+    border-radius: 10px;
+}
+
+
+
+#home_button_container{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#btn_chapter_1{
+    background-color: #343a40;
+    color: snow;
+    border: 1px solid #343a40;
+}
+
+#home_text_container{
+    border-bottom: 1px solid #343a40;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+}
+
+#btn_chapter_1:hover{
+    background-color: #8c9c99;
+    color: #343a40;
+}
+
+
+
+/*****************************************  ABOUT ********************************************/
+
+.about_container{
+    padding-top:25px;
+}
+
+#about_title_container{
+    border-top: 2px solid #343a40;
+    border-bottom: 1px solid #343a40;
+    text-align: center;
+}
+
+.about_text_container{
+    margin-top: 25px;
+    position: relative;
+}
+
+.img_about_min {
+   padding: 0 20px 0 0;
+}
+
+.img_about_min img{
+    width: 250px;
+    height: auto;
+    border-radius: 5px;
+    transition: width 1s;
+}
+
+
+@media screen and (min-width: 600px) {
+    .img_about_min img:hover{
+        width: 350px;
+        height: auto;
+    }
+
+}
+
+/*****************************************  CHAPTERS LIST  ********************************************/
+.list_chapters_container{
+    padding-top: 25px;
+}
+
+#chapters_title_container{
+    border-top: 2px solid #343a40;
+    border-bottom: 1px solid #343a40;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.row_chapters{
+    margin-bottom: 25px;
+    display: inline;
+}
+.extract_container{
+    text-align: center;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    padding: 15px !important;
+    background-color: #343a40;
+    color: snow;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+.title_chapter{
+    color: #8c9c99;
+}
+
+.text_extract{
+    border-top: 1px solid #8c9c99;
+    border-bottom: 1px solid #8c9c99;
+    padding: 15px 0 15px 0;
+    text-align:left;
+    margin-bottom: 15px;
+}
+.text_extract p{
+    margin-bottom: 0;
+}
+
+.btn_chapters{
+    background-color: #343a40;
+    color: snow;
+    border: 1px solid #8c9c99;
+}
+.btn_chapters:hover{
+    background-color: #8c9c99;
+    color: #343a40;
+}
+
+.btn_page{
+    border-radius: 5px;
+    border: 1px solid #343a40;
+}
+
+.btn_page_container{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.select_btn{
+    background-color: #343a40;
+    color: snow;
+}
+
+/*****************************************  CHAPTER-COM *******************************************/
+
+.chapter_container{
+    text-align: center;
+    padding-top: 25px;
+}
+
+.chapter_col_container{
+    padding-top: 5px;
+}
+
+#chapter_title{
+    padding: 10px 0;
+    margin: 0;
+    border-top: 2px solid #343a40;
+    border-bottom: 1px solid #343a40;
+}
+
+
+.text_container{
+    padding: 25px 0;
+}
+
+.title_com{
+    margin-bottom: 25px;
+    padding: 10px 0;
+    border-top: 2px solid #343a40;
+    border-bottom: 1px solid #343a40;
+    text-align: center;
+}
+
+.row_prev_next{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+
+#pseudo_form_container{
+    margin-bottom: 25px;
+}
+
+.form_com_container{
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+#com_container{
+    margin-bottom: 25px;
+}
+
+.btn_clear{
+    border: 1px solid #343a40;
+}
+.btn_clear:hover{
+    color: snow;
+    background-color:#343a40;
+}
+
+.com{
+    background-color: #343a40;
+    color: snow;
+    border-radius: 5px;
+    margin: 25px 0;
+    padding: 15px;
+    text-align: center;
+}
+
+.com_date{
+    font-size: 0.8em;
+}
+
+.signal_com_btn{
+    border: 1px solid #8c9c99;
+}
+
+.signal_com_btn:hover{
+    border: 1px solid #8c9c99;
+    color: snow;
+}
+
+.signaled_com{
+    font-size: 0.8em;
+    color: red;
+    margin: 0;
+}
+
+/*****************************************  CONTACT ********************************************/
+
+.contact_container{
+    padding-top:25px;
+}
+
+#contact_title_container{
+    border-top:2px solid #343a40;
+    border-bottom:1px solid #343a40;
+    text-align: center;
+}
+
+#contact_email{
+    border-right: 1px solid #343a40;
+}
+
+#email_link{
+    color: snow;
+}
+
+.container_col_contact{
+    text-align: center;
+    margin-top: 25px;
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 760px){
+    #contact_email{
+        border-right: 0;
+        border-bottom:1px solid #343a40;
+        padding-bottom: 15px;
+    }
+}
