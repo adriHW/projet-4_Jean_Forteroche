@@ -290,7 +290,54 @@ try{
         }
         
         
+//**************************************************************************//
+//********************************  COMMENT   ********************************//
+//**************************************************************************//
+
         
+        
+        elseif($action == 'display_coms'){
+            
+            if(isset($_GET['signaled'])){
+                $cate = 'signaled';
+                $from = 'signaled=1';
+                $ctrBack = new ControllerBack;
+                $ctrBack->display_coms($cate, $from);
+            }
+            elseif(isset($_GET['all'])){
+                $cate = 'all';
+                $from = 'all=1';
+                $ctrBack = new ControllerBack;
+                $ctrBack->display_coms($cate, $from);
+            }
+        }
+        
+        elseif($action == 'chapter_coms'){
+             if(isset($_GET['chapter'])){
+                $chapter = $_GET['chapter'];
+                $cate = 'chapter';
+                $from = $chapter;
+                $ctrBack = new ControllerBack;
+                $ctrBack->chapter_coms($chapter, $from);
+            }
+        }
+        
+        elseif($action == 'delete_com'){
+            if(isset($_GET['com_id'])){
+                $com_id = $_GET['com_id'];
+                $from = $_GET['from'];
+                $ctrBack = new ControllerBack;
+                $ctrBack->delete_com($com_id, $from);
+            }
+        }
+        elseif($action == 'validate_com'){ 
+            if(isset($_GET['com_id'])){
+                $com_id = $_GET['com_id'];
+                $from = $_GET['from'];
+                $ctrBack = new ControllerBack;
+                $ctrBack->validate_com($com_id, $from);
+            }
+        }
 //**************************************************************************//
 //********************************  REDIRECTION   ********************************//
 //**************************************************************************//
