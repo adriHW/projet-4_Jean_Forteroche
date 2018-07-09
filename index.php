@@ -44,6 +44,11 @@ try{
             }
         }
         
+        elseif($action == 'display_contact'){
+            $ctrFront = new ControllerFront;
+            $ctrFront->display_page("contact");
+        }
+        
         
         
         
