@@ -74,6 +74,29 @@ try{
             }
         }
         
+        elseif($action == 'post_comment'){
+            if(isset($_POST['post_id']) && isset($_POST['chapter'])){
+                $id = (int) $_POST['post_id'];
+                $chapter = (int) $_POST['chapter'];
+                $author = $_POST['author'];
+                $comment = $_POST['comment'];
+                
+                if(!empty($_POST['author']) && !empty($_POST['comment'])){
+                    $ctrFront = new ControllerFront;
+                    $ctrFront->add_comment($id, $chapter, $author, $comment);
+                }
+                else{
+                    $_SESSION['error_mess'] = 'Pour envoyer un commentaire vous devez remplir les champs: Votre pseudo et votre commentaire';
+                    $ctrFront = new ControllerFront;
+                    $ctrFront->add_comment($id, $chapter, $author, $comment);
+                }
+            }
+            else{
+                throw new Exception('Identifiant incorrect');
+            }
+        }
+
+        
         
         
         
