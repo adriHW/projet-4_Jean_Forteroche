@@ -1,0 +1,289 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+section, #body_log{
+    background-color: #8c9c99;
+    height: auto;
+    min-height: 100%;
+    padding-bottom: 25px;
+}
+
+.row{
+    display: block !important;
+    padding: 0 15px;
+}
+
+h1{
+    border-top: 2px solid #343a40;
+    border-bottom: 1px solid #343a40;
+    margin-bottom: 25px !important;
+}
+
+.btn_darkB{
+    background-color: #343a40;
+    border: 1px solid #8c9c99 !important;
+    color: snow;
+    margin: 5px 5px;
+}
+.btn_darkB:hover{
+    background-color: #8c9c99;
+    border: 1px solid #343a40 !important;
+    color: #343a40;
+}
+
+.btn_lightB{
+    background-color: #8c9c99 !important;
+    border: 1px solid snow !important;
+    color: snow !important;
+}
+.btn_lightB:hover{
+    background-color: #343a40 !important;
+    color: snow !important;
+}
+
+.container_content{
+    padding-top: 25px;
+    text-align: center;
+}
+
+.signaled_com{
+    margin: 0 0 5px 0;
+    font-size: 0.9em;
+    color: red;
+}
+/***********************************  ADMIN  CONNECT   *******************************************************/
+
+
+#title_connect{
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #343a40;
+    color: snow;
+}
+#title_connect h1{
+    margin: 0;
+}
+
+.row_login{
+    display: flex !important;
+}
+
+.col_error{
+    height: 60px;
+    margin-top: 50px;
+}
+
+.error_mess{
+    margin: 0;
+    padding: 0;
+    color: red;
+    text-align: center;
+}
+.col_login_form{
+    padding: 0 !important;
+}
+
+#login_form_container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #343a40;
+    margin-top: 25px;
+    background-color: #343a40;
+    color: snow;
+    border-radius: 5px;
+}
+
+.input_admin{
+    margin-bottom: 15px;
+}
+
+#connect_button_container{
+    margin: auto;
+    max-width: 250px;
+}
+
+.col_back_site_btn{
+    text-align: center;
+    margin-top: 35px;
+}
+
+.back_btn{
+    font-weight:800 !important;
+}
+/***********************************  HEADER  *******************************************************/
+
+#header_container{
+    height: 56px;
+}
+#navibar{
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.nav-link{
+    color: snow !important;
+    border-radius: 5px;
+}
+
+.nav-link:hover{
+    background-color: #8c9c99;
+    color: #343a40 !important;
+}
+
+#what_chapter_container{
+    display: flex;
+    flex-direction: row;
+    color: snow;
+    padding: 0;
+}
+
+#what_chapter{
+    width: 50px;
+}
+
+#btn_go, #what_chapter{
+    height: 30px;
+    padding: 2px !important;
+    margin: 0 0 0 5px !important;
+}
+
+
+
+
+/***********************************  FOOTER  *******************************************************/
+
+
+#footer_container{
+    height: 80px;
+    background-color: #343a40;
+    padding: 20px;
+    text-align: center;
+}
+
+.btn_footer_admin{
+    background-color: #343a40;
+    border: 1px solid #8c9c99 !important;
+    color: snow;
+    margin: 0 25px;
+}
+
+.btn_footer_admin:hover{
+    background-color: #8c9c99;
+    border: 1px solid #343a40 !important;
+    color: #343a40;
+}
+
+@media(max-width: 400px){
+    #footer_container{
+        padding: 20px 0;
+    }
+    .btn_footer_admin{
+        margin: 0;
+    }
+}
+
+/*********************************** ADMIN HOME ******************************************************/
+
+
+.post_container{
+    background-color: #343a40;
+    color: snow;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 5px;
+}
+
+#save{
+    font-size: 0.5em;
+    text-decoration: underline;
+    color: red;
+}
+
+.col_container{
+    background-color:snow;
+    border: 1px solid #343a40;
+    border-radius: 10px;
+    padding: 0 !important;
+    margin-bottom: 25px;
+}
+
+.comment_post{
+    padding: 15px 0;
+}
+
+.com_header{
+    padding: 10px;
+    margin: 0;
+}
+
+.com_date{
+    font-size: 0.8em;
+}
+
+.com_text{
+    padding: 10px;
+    border-top: 1px solid #8c9c99;
+    border-bottom: 1px solid #8c9c99;
+    color: snow;
+}
+
+.post_container_com{
+    margin-top: 5px;
+}
+
+
+/*********************************** NEW CHAPTER ******************************************************/
+
+#title, #chapter, .publish_new, .save_new{
+    margin: 0 5px;
+}
+
+
+.row_textarea{
+    margin-bottom: 25px;
+}
+
+
+/************************************ DISPLAY POST  ******************************************************/
+
+.extract_container{
+    border: 2px solid black;
+    padding: 5px;
+}
+
+.chapter_info{
+    font-size: 0.8em;
+    color: red;
+    margin: 0;
+}
+
+.date_chapter{
+    margin: 0;
+}
+
+
+
+/************************************ EDITING INTERFACE ******************************************************/
+
+
+
+/************************************ DISPLAY COMMENTS ******************************************************/
+#list_coms_container{
+    border-radius: 10px;
+}
+
+.com_post{
+    background-color: #343a40;
+    border-radius: 10px;
+    color: snow;
+    margin-bottom: 25px;
+    padding: 5px;
+}
+
