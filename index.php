@@ -108,6 +108,55 @@ try{
                 throw new Exception('Identifiant manquant');
             }
         }
+        
+//**************************************************************************//
+//********************************  BACKEND   ********************************//
+//**************************************************************************//
+        
+        
+//**************************************************************************//
+//********************************  CONNECTION   ********************************//
+//**************************************************************************//
+        
+        
+        
+        
+        elseif($action == 'admin_connect'){
+            if(isset($_SESSION['user_name']) && isset($_SESSION['admin'])){
+                $ctrBack = new ControllerBack;
+                $ctrBack->admin_home();
+            }
+            else{    
+                $ctrBack = new ControllerBack;
+                $ctrBack->display_admin_connect();
+            }
+        }
+        
+        elseif($action == 'validation'){
+            if(!empty($_POST['user_name']) && !empty($_POST['user_pwd'])){      
+                $user_name = $_POST['user_name'];
+                $pwd = $_POST['user_pwd'];
+                $ctrBack = new ControllerBack;
+                $ctrBack->is_admin($user_name, $pwd);
+            }
+            else{
+                $_SESSION['connect_error'] = 'Veuillez remplir les champs: nom d\'utilisateur et mot de passe pour vous connecter.';
+                $ctrBack = new ControllerBack;
+                $ctrBack->is_admin($user_name, $pwd);
+            }
+        }
+        
+        elseif($action == 'admin_home' ){
+            $ctrBack = new ControllerBack;
+            $ctrBack->admin_home();
+        }
+        
+        elseif($action == 'sign_out'){
+            session_destroy();
+            $ctrBack = new ControllerBack;
+            $ctrBack->display_admin_connect();
+        }
+        
 
         
         
