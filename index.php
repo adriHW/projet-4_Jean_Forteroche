@@ -49,6 +49,30 @@ try{
             $ctrFront->display_page("contact");
         }
         
+        elseif($action == 'get_post'){
+            if(isset($_GET['chapter'])){
+                $chapter = (int)$_GET['chapter'];
+                if($chapter > 0 && $chapter <= $_SESSION['chapter_count']){
+                    $ctrFront = new ControllerFront;
+                    $ctrFront->display_chapter($chapter);
+                }
+                else{
+                    $_SESSION['error_mess'] = 'Le chapitre que vous recherchez n\'existe pas.<br> Ce livre contient '.$_SESSION['chapter_count'].' Chapitres';
+                    $ctrFront = new ControllerFront();
+                    $ctrFront->display_page("home");
+                }
+            }
+            elseif(isset($_POST['chapter'])){
+                $chapter = (int)$_POST['chapter'];
+                $ctrFront = new ControllerFront;
+                $ctrFront->display_chapter($chapter);
+            }
+            else{
+                $_SESSION['error_mess'] = 'La page que vous recherchez n\'existe pas.';
+                $ctrFront = new ControllerFront();
+                $ctrFront->display_page("home");
+            }
+        }
         
         
         
