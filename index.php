@@ -95,6 +95,19 @@ try{
                 throw new Exception('Identifiant incorrect');
             }
         }
+        
+        elseif($action == 'signaled'){
+            if(!empty($_GET['com_id'])){
+                $com_id = (int)$_GET['com_id'];
+                $chapter = (int)$_GET['chapter'];
+                echo $com_id;
+                $ctrFront = new ControllerFront;
+                $ctrFront->signaled_comment($com_id, $chapter);
+            }
+            else{
+                throw new Exception('Identifiant manquant');
+            }
+        }
 
         
         
