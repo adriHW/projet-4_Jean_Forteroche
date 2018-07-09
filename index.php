@@ -23,6 +23,26 @@ try{
             $ctrFront->display_page("about");
         }
         
+        elseif($action == 'display_chapters'){
+            if(isset($_GET['page_nb']) && is_int((int)$_GET['page_nb'])){
+                $page_nb = (int)$_GET['page_nb'];
+                $max_page = ceil($_SESSION['chapter_count']/6);
+                if($page_nb > 0 && $page_nb <=  $max_page){
+                    $ctrFront = new ControllerFront;
+                    $ctrFront->display_chapters($page_nb);
+                }
+                else{
+                    $_SESSION['error_mess'] = 'La page que vous recherchez n\'existe pas.';
+                    $ctrFront = new ControllerFront();
+                    $ctrFront->display_page("home");
+                }
+            }
+            else{
+                $_SESSION['error_mess'] = 'La page que vous recherchez n\'existe pas.';
+                $ctrFront = new ControllerFront();
+                $ctrFront->display_page("home");
+            }
+        }
         
         
         
